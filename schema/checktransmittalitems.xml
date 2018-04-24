@@ -1,0 +1,16 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checktransmittalitems">
+		<field name="objid" primary="true" prefix="CTI"/>
+		<field name="transmittalid" required="true"/>
+		<field name="checkid" required="true" />
+		<field name="checknumber" required="true" />
+		<field name="payee" required="true" />
+		<field name="checkamt" required="true" />
+
+		<complex name="parent" ref="checktransmittal" jointype="many-to-one" includefields="objid,transmittalnum,createdby_name" required="false">
+			<key field="transmittalid" target="objid" />
+		</complex>		
+	</element>
+
+</schema>

@@ -1,0 +1,10 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checkpayee">
+		<field name="objid" primary="true" prefix="P"/>
+		<field name="payeeabbr" required="true"  caption="Payee Abbr" indexed="true" searchable="true"/>
+		<field name="payeename" required="true"  caption="Payee Name" indexed="true" searchable="true"/>
+
+	</element>
+
+</schema>

@@ -1,0 +1,27 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checkmain">
+		<field name="objid" primary="true" prefix="CM"/>
+		<field name="payeeid" required="true" visible="false" indexed="true" />
+		<field name="payee" required="true"  caption="Payee" indexed="true" searchable="true"/>
+		<field name="checkadd" required="true"  visible="false" indexed="true" />
+		<field name="checknumber" required="true" caption="Check Number" indexed="true" searchable="true"/>
+		<field name="checkdate" required="true" caption="Date" type="date" indexed="true"/>
+		<field name="checkamt" required="true" caption="Amount" type="decimal"/>
+		<field name="checkamtwords"  visible="false" indexed="true"/>
+		<field name="checkaccountid" required="true" visible="false" indexed="true" />
+		<field name="checkaccount" required="true" visible="false" indexed="true"/>
+		<field name="officeorigin" required="true" caption="Office Origin" indexed="true"/>
+		<field name="checktype" required="true"  indexed="true"/>
+		<field name="particulars" required="true"  visible="false" indexed="true" />
+		<field name="rjevno" visible="false" indexed="true" />
+		<field name="voucherno" visible="false" indexed="true" />
+		<field name="state"   required="true" caption="State"/>
+
+		<field name="createdby_objid" visible="false"/>
+		<field name="createdby_name" visible="false"/>
+		<field name="createdby_jobtitle" visible="false"/>
+
+	</element>
+
+</schema>

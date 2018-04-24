@@ -1,0 +1,21 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="estrunningbalance">
+		<field name="objid" primary="true" prefix="ERB"/>
+		<field name="state" required="true" caption="State" indexed="true" searchable="true"/>
+		<field name="accountid" required="true" visible="false"/>
+		<field name="accountname" required="true" caption="Account" visible="true"/>
+		<field name="beginningbalance" required="true" visible="true" caption="Beginning Balance" indexed="true" type="decimal"/>
+		<field name="totaldebit" required="false" visible="false" indexed="true" type="decimal"/>
+		<field name="totalcredit" required="false" visible="false" indexed="true" type="decimal"/>
+		<field name="endbalance" required="false" visible="true" caption="End Balance" indexed="true" type="decimal"/>
+		<field name="currentlineno" required="false" visible="false"/>
+
+		<field name="createdby_objid" visible="false"/>
+		<field name="createdby_name" visible="false"/>
+		<field name="createdby_jobtitle" visible="false"/>
+		<field name="createdby_date" visible="false"/>
+
+	</element>
+
+</schema>

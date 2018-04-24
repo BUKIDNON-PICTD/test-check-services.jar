@@ -1,0 +1,89 @@
+import com.rameses.annotations.*;
+import com.rameses.common.*;
+import com.rameses.services.extended.*;
+
+public class testcheckService extends ActiveCrudListService
+{
+	@ActiveDB(value='checktransmittalitems', em='testchequedataentry')
+	def em;
+
+	@ActiveDB(value='testchequedataentry', em='testchequedataentry')
+	def emfinal;
+
+	@DataContext('checktransmittalitems') 
+	def xem;
+
+	@DataContext('checkmain') 
+	def xmain;
+
+	@DataContext('ada') 
+	def xada;
+
+	@Service('SequenceService')
+	def seqSvc
+
+	@Service('ReportParameterService')
+	def rpsvc
+
+	@Service('DateService')
+	def dtSvc
+
+	@Env
+	def env; 
+
+	def entity;
+
+	@ProxyMethod
+	public def getCheckReportData(o){
+		//check = open(check)
+		//check.churvaness = em.getCheckReport(check)
+		//check.params = rpsvc.getStandardParameter()
+		//println cert.churvaness
+		
+		//return check
+
+		//def p = [_schemaname: 'checktransmittal'];
+        //p.findBy = [ 'objid':o.objid];
+        //p.select = "*";
+        //return queryService.getList( p );
+
+        xem.debug = true;
+        //o.parent = xem.find( ['parent.objid': o.objid ] ).select("parent.transmittalnum, checknumber, payee, checkamt").list();
+        o.churvaness = xem.find( ['parent.objid': o.objid ] ).select("parent.transmittalnum, checknumber, payee, checkamt").list();
+        o.transmittalnum =o.churvaness[0].parent.transmittalnum;
+        return o
+	
+	}
+
+	@ProxyMethod
+	public def getCheckMainReportData(c){
+
+		xmain.debug = true;
+		return xmain.find(['objid': c.objid]).select("payee, checkaccount, checkdate, checkamt, checkamtwords, checknumber, checkadd").list();
+
+	}
+
+	@ProxyMethod
+	public def getAdaReportData(c){
+
+		xmain.debug = true;
+		return xada.find(['objid': c.objid]).select("controlno, checkaccount, adaamt, adaamtwords, people, particulars").list();
+
+	}
+
+	@ProxyMethod
+	public def getCheckTransmittalData(o){
+
+		println o.objid
+		def list = emfinal.getCheckTransmittals([objid:o.objid])
+        if (!list) throw new Exception('There are no records found.')
+
+        println list
+
+        return list
+	}
+
+
+}
+	
+

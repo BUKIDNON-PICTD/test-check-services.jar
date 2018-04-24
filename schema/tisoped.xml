@@ -1,0 +1,22 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="tisoped">
+		<field name="objid" primary="true" prefix="DEPO"/>
+		<field name="txndate" required="true" caption="Date" type="date" indexed="true"/>
+		<field name="depamt" required="true" caption="Amount" type="decimal"/>
+		<field name="checkaccountid" required="true" visible="false" indexed="true" />
+		<field name="checkaccount" required="true" visible="true" caption="Account" indexed="true"/>
+		<field name="state" required="true" visible="false" caption="State"/>
+		<field name="validationno" required="false" visible="false" caption="Validation Number" indexed="true"/>
+		<field name="validationdate" required="false" visible="false" caption="Validation Date" type="date" indexed="true"/>
+		<field name="voucherno" visible="true" caption="Voucher No." indexed="true" />
+		<field name="rjevno" visible="true" caption="RJEV / RDCD No." indexed="true" />
+		
+
+		<field name="createdby_objid" visible="false"/>
+		<field name="createdby_name" visible="false"/>
+		<field name="createdby_jobtitle" visible="false"/>
+
+	</element>
+
+</schema>

@@ -1,0 +1,23 @@
+import com.rameses.annotations.*;
+
+public class TestcheckPersistenceInterceptor
+{
+	@DataContext('checkmain') 
+	def checkmain;
+
+	//@ActiveDB(value='checkmain', em='testchequedataentry')
+	//def em;
+
+	@After(pattern="PersistenceService.(create|update)", eval="#{args[0]._schemaname == 'checktransmittal' }" )
+	public void afterCreate(ei){
+		def o = ei.args[0];	 
+		def m = [:];
+
+		def ids = o.items.checkid.join("','");
+		checkmain.debug = true;
+		checkmain.where("objid IN ('"+ ids +"')").update([state:'CLOSED']);
+		
+	}
+
+
+}

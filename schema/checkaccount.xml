@@ -1,0 +1,11 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checkaccount">
+		<field name="objid" primary="true" prefix="CA"/>
+		
+		<field name="accountname" required="true"  caption="Account Name" indexed="true" searchable="true"/>
+		<field name="accountno" required="true"  caption="Account Number" indexed="true" searchable="true"/>
+
+	</element>
+
+</schema>

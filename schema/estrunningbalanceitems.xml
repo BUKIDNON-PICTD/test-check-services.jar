@@ -1,0 +1,17 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="estrunningbalanceitems">
+		<field name="objid" primary="true" prefix="ERBI"/>
+		<field name="parentid" required="true" indexed="true" searchable="false"/>
+		<field name="txndate" required="true" />
+		<field name="refdate" required="true" />
+		<field name="refid" required="true" />
+		<field name="refno" required="false" />
+		<field name="debit" required="false" visible="false" indexed="true" type="decimal"/>
+		<field name="credit" required="false" visible="false" indexed="true" type="decimal"/>
+		<field name="runbalance" required="false" visible="false" indexed="true" type="decimal"/>
+		<field name="lineno" required="false" />
+
+	</element>
+
+</schema>

@@ -1,0 +1,24 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="ada">
+		<field name="objid" primary="true" prefix="ADA"/>
+		<field name="txndate" required="true" caption="Date" type="date" indexed="true"/>
+		<field name="controlno" required="true" caption="Control No." indexed="true"/>
+		<field name="adaamt" required="true" caption="Amount" type="decimal"/>
+		<field name="adaamtwords"  visible="false" indexed="true"/>
+		<field name="checkaccountid" required="true" visible="false" indexed="true" />
+		<field name="checkaccount" required="true" visible="false" indexed="true"/>
+		<field name="people" required="false" visible="true" caption="People" indexed="true"/>
+		<field name="particulars" required="true" visible="true" caption="Particulars" indexed="true"/>
+		<field name="cashbookno" required="true" visible="true" caption="Cashbook Number" indexed="true"/>
+		<field name="rjevno" visible="false" indexed="true" />
+		<field name="voucherno" visible="false" indexed="true" />
+		<field name="state" required="true" caption="State"/>
+
+		<field name="createdby_objid" visible="false"/>
+		<field name="createdby_name" visible="false"/>
+		<field name="createdby_jobtitle" visible="false"/>
+
+	</element>
+
+</schema>

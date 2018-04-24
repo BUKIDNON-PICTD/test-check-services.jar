@@ -1,0 +1,16 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="cancelleditems">
+		<field name="objid" primary="true" prefix="CI"/>
+		<field name="cancelleditemid"  visible="false" indexed="true"/>
+		<field name="txndate" required="true" caption="Date" type="date" indexed="true"/>
+		<field name="reason" required="true" caption="Reason" indexed="true"/>
+		
+
+		<field name="createdby_objid" visible="false"/>
+		<field name="createdby_name" visible="false"/>
+		<field name="createdby_jobtitle" visible="false"/>
+
+	</element>
+
+</schema>

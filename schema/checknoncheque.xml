@@ -1,0 +1,21 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checknoncheque">
+		<field name="objid" primary="true" prefix="CNC"/>
+		<field name="specifics" required="true"  caption="Specifics" indexed="true" searchable="true"/>
+		<field name="debit" required="false" caption="Debit" type="decimal"/>
+		<field name="credit" required="false" caption="Credit" type="decimal"/>
+		<field name="rjevno" visible="true" caption="RJEV No." indexed="true" />
+		<field name="voucherno" visible="true" caption="Voucher No." indexed="true" />
+		<field name="checkaccountid" required="true" visible="false" indexed="true" />
+		<field name="checkaccount" required="true" caption="Account" visible="true" indexed="true"/>
+
+
+		<field name="createdby_objid" visible="false"/>
+		<field name="createdby_name" visible="false"/>
+		<field name="createdby_jobtitle" visible="false"/>
+		<field name="createdby_date" visible="false"/>
+
+	</element>
+
+</schema>

@@ -1,0 +1,17 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checktransmittal">
+		<field name="objid" primary="true" prefix="CT" />
+		<field name="datecreated" caption="Date Created" required="true" type="date"/>
+		<field name="transmittalnum" caption="Transmittal Number" required="true" searchable="true"/>
+		<field name="createdby_name" caption="Created By" searchable="true" />
+		<field name="createdby_id" visible="false" />
+		<field name="transtate" visible="false" required="true" />
+
+		<complex name="items" ref="checktransmittalitems" jointype="one-to-many" orderBy="checknumber" >
+			<key field="objid" target="transmittalid" /> 		
+		</complex> 
+
+	</element>
+
+</schema>
