@@ -1,0 +1,11 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="respcentercode">
+		<field name="objid" primary="true" prefix="RCC"/>
+		
+		<field name="respcentercodename" required="true"  caption="Resp Center Name" indexed="true" searchable="true"/>
+		<field name="respcentercode" required="true"  caption="Resp Center Code" indexed="true" searchable="true"/>
+
+	</element>
+
+</schema>

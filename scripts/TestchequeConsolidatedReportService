@@ -1,0 +1,54 @@
+import com.rameses.annotations.*
+import com.rameses.common.*;
+import com.rameses.services.extended.*;
+
+class TestchequeConsolidatedReportService
+{
+    @ActiveDB(value='testchequedataentry', em='testchequedataentry')
+    def em
+
+    // @ActiveDB(value='testchequedataentry', em='main')
+    // def emmain
+
+    @Service('NumberService')
+    def numberSvc
+
+    @Env 
+    def env 
+
+    @ProxyMethod
+    public def getConsoReport(params) {
+
+        println params
+        println "xxxx"
+        //println parameters
+
+        
+
+        //println params.checkreportacct
+        //def accountid = (params.checkreportacct ? params.checkreportacct.accountid : '%')
+
+        //println "*****"
+        //println accountid
+        
+
+        def list = em.getConsoReport([datefrom:params.datefrom, dateto:params.dateto])
+        //println list
+        if (!list) throw new Exception('There are no records found.')
+      
+        def p = [
+            TITLE    : 'Consolidated Report of Issued Checks and AD/CA',
+            //SUBTITLE : subtitle,
+            DATEFROM : (params.datefrom),
+            DATETO : (params.dateto),         
+        ]
+
+        return [
+            parameters  : p,
+            reportdata  : list
+        ]
+    }
+
+
+
+}

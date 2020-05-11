@@ -1,0 +1,28 @@
+import com.rameses.annotations.*;
+import com.rameses.common.*;
+import com.rameses.services.extended.*;
+
+public class adalistService extends ActiveCrudListService
+{
+	@ActiveDB(value='testchequeadalist', em='testchequedataentry')
+	def em;
+
+	@ProxyMethod
+	public def getColumns(params){
+		return [
+			[name:'txndate', caption:'Payee'],
+			[name:'controlno', caption:'Check Number'],
+			[name:'adaamt', caption:'Check Date'],
+			[name:'people', caption:'Amount'],
+			[name:'particulars', caption:'Office Origin'],
+			[name:'cashbookno', caption:'Check Type'],
+			[name:'state', caption:'State'],
+		]
+	}
+
+
+
+
+}
+	
+

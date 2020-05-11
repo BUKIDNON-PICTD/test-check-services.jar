@@ -1,0 +1,21 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="checkmainexpenseclassitems">
+		<field name="objid" primary="true" prefix="CECI"/>
+		<field name="parentid" required="true"/>
+		
+        <field name="duesname" required="true"  caption="Dues Name" indexed="true" searchable="true"/>
+		<field name="amount" visible="false" indexed="true" />
+
+		
+		<field name="recordlog_dateupdated" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuserid" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuser" required="false" visible="false" searchable="false"/>
+
+		<complex name="parent" ref="checkmain" jointype="many-to-one" includefields="objid,checknumber,createdby_name" required="false">
+			<key field="parentid" target="objid" />
+		</complex>
+
+	</element>
+
+</schema>

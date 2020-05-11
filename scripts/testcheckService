@@ -33,6 +33,19 @@ public class testcheckService extends ActiveCrudListService
 
 	def entity;
 
+	// @ProxyMethod
+	// public def getColumns(params){
+	// 	return [
+	// 		[name:'payee', caption:'Payee'],
+	// 		[name:'checknumber', caption:'Check Number'],
+	// 		[name:'checkdate', caption:'Check Date'],
+	// 		[name:'checkamt', caption:'Amount'],
+	// 		[name:'officeorigin', caption:'Office Origin'],
+	// 		[name:'checktype', caption:'Check Type'],
+	// 		[name:'state', caption:'State'],
+	// 	]
+	// }
+
 	@ProxyMethod
 	public def getCheckReportData(o){
 		//check = open(check)
@@ -81,6 +94,14 @@ public class testcheckService extends ActiveCrudListService
         println list
 
         return list
+	}
+
+	@ProxyMethod
+	public def getFrontCheckMainReportData(c){
+
+		xmain.debug = true;
+		return xmain.find(['objid': c.objid]).select("payee, checkaccount, checkdate, checkamt, checkamtwords, checknumber, checkadd, officeorigin, checktype, particulars, voucherno").list();
+
 	}
 
 

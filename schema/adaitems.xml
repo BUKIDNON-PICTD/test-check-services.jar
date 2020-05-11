@@ -1,0 +1,27 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="adaitems">
+		<field name="objid" primary="true" prefix="AI"/>
+		<field name="parentid" required="true"/>
+		
+		<field name="adacontrolno" caption="Control No." indexed="true" searchable="true"/>
+		<field name="accountno" visible="false" indexed="true" />
+		
+		<field name="payeename" visible="false" indexed="true" />
+		<field name="particulars" required="true" visible="true" caption="Particulars" indexed="true" searchable="true"/>
+		<field name="amount" visible="false" indexed="true" />
+		<field name="respcentercode" visible="false" indexed="true" />
+		<field name="fundcode" visible="false" indexed="true" />
+		<field name="expenseclass" visible="false" indexed="true" />
+		
+		<field name="recordlog_dateupdated" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuserid" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuser" required="false" visible="false" searchable="false"/>
+
+		<complex name="parent" ref="ada" jointype="many-to-one" includefields="objid,checknumber,createdby_name" required="false">
+			<key field="parentid" target="objid" />
+		</complex>
+
+	</element>
+
+</schema>

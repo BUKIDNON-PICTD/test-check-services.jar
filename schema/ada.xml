@@ -10,14 +10,27 @@
 		<field name="checkaccount" required="true" visible="false" indexed="true"/>
 		<field name="people" required="false" visible="true" caption="People" indexed="true" searchable="true"/>
 		<field name="particulars" required="true" visible="true" caption="Particulars" indexed="true" searchable="true"/>
-		<field name="cashbookno" required="true" visible="true" caption="Cashbook Number" indexed="true"/>
+		<field name="cashbookno" required="true" visible="true" caption="Cashbook Number" indexed="true" searchable="true"/>
 		<field name="rjevno" visible="false" indexed="true" />
 		<field name="voucherno" visible="false" indexed="true" />
 		<field name="state" required="true" caption="State"/>
+		<field name="acctngcontrolno" required="true" caption="Acct Control No." visible="true" indexed="true" searchable="true"/>
 
 		<field name="createdby_objid" visible="false"/>
 		<field name="createdby_name" visible="false"/>
 		<field name="createdby_jobtitle" visible="false"/>
+
+		<field name="recordlog_datecreated" required="true" visible="false" searchable="false"/>
+		<field name="recordlog_createdbyuserid" required="true" visible="false" searchable="false"/>
+		<field name="recordlog_createdbyuser" required="true" visible="false" searchable="false"/>
+		<field name="recordlog_dateupdated" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuserid" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuser" required="false" visible="false" searchable="false"/>
+
+
+		<complex name="items" ref="adaitems" jointype="one-to-many" orderBy="controlno" >
+			<key field="objid" target="parentid" /> 		
+		</complex> 
 
 	</element>
 

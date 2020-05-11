@@ -1,0 +1,10 @@
+<schema adapter="testchequedataentry">
+
+	<element tablename="expenseclassitems">
+		<field name="objid" primary="true" prefix="ECI"/>
+		
+		<field name="duesname" required="true"  caption="Dues Name" indexed="true" searchable="true"/>
+
+	</element>
+
+</schema>

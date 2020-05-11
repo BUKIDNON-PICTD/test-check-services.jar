@@ -13,14 +13,32 @@
 		<field name="checkaccount" required="true" visible="false" indexed="true"/>
 		<field name="officeorigin" required="true" caption="Office Origin" indexed="true"/>
 		<field name="checktype" required="true"  indexed="true"/>
-		<field name="particulars" required="true"  visible="false" indexed="true" />
+		<field name="particulars" required="true"  indexed="true" />
+		<field name="iscashadvance" indexed="true" />
 		<field name="rjevno" visible="false" indexed="true" />
 		<field name="voucherno" visible="false" indexed="true" />
+		<field name="respcentercode" visible="false" indexed="true" />
+		<field name="expenseclass" visible="false" indexed="true" />
+		<field name="accountspayable" visible="false" indexed="true" />
+		<field name="provfund" visible="false" indexed="true" />
 		<field name="state"   required="true" caption="State"/>
 
 		<field name="createdby_objid" visible="false"/>
 		<field name="createdby_name" visible="false"/>
 		<field name="createdby_jobtitle" visible="false"/>
+
+		<field name="recordlog_datecreated" required="true" visible="false" searchable="false"/>
+		<field name="recordlog_createdbyuserid" required="true" visible="false" searchable="false"/>
+		<field name="recordlog_createdbyuser" required="true" visible="false" searchable="false"/>
+
+		<field name="recordlog_dateupdated" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuserid" required="false" visible="false" searchable="false"/>
+		<field name="recordlog_lastupdatedbyuser" required="false" visible="false" searchable="false"/>
+
+	
+		<complex name="items" ref="checkmainexpenseclassitems" jointype="one-to-many" orderBy="checkdate" >
+			<key field="objid" target="parentid" /> 		
+		</complex> 
 
 	</element>
 
